@@ -1,0 +1,397 @@
+[Note: This report uses public information available up to Feb 2026 and approximate consensus where point estimates are not precisely known. All figures are fiscal year (FY, September year‑end) unless stated otherwise; USD billions except per‑share and multiples.]
+
+---
+
+## 1. Investment Summary
+
+**Rating (framework):** Positive long‑term risk/reward; near‑term more balanced after a strong multi‑year rerating.  
+**Time horizon:** 12–24 months (through FY26–27)  
+**Current context (early 2026):**
+- Share price: ~\$185–195 (assumption range)
+- Market cap: ~\$2.8–3.0tn
+- FY25E P/E: ~27–29x; EV/FCF: ~24–26x (consensus‑based, approximated)
+- Balance sheet: Net cash near flat (cash + marketable securities roughly equal to gross debt), but still robust liquidity and strong FCF.
+
+**Core thesis**
+
+- Apple transitions from a hardware‑centric, iPhone‑led story to a more balanced **devices + services + emerging platforms (Vision Pro/spatial computing, AI)** profile.
+- Near‑term growth is modest (mid‑single‑digit top line) but **high FCF conversion**, disciplined opex, and continued **buybacks** support **high‑single‑digit to low‑double‑digit EPS CAGR** through FY27.
+- Valuation sits at a **premium to hardware peers** and roughly in line with or slightly below megacap software/AI leaders, supported by the stability of the installed base and services mix; upside requires evidence that Apple can **participate meaningfully in AI economics** and build a new product S‑curve.
+
+---
+
+## 2. Base / Bull / Bear Case (FY25–FY27)
+
+_All cases assume FY24 as a starting point; FY24 numbers below are approximations based on recent history and Street consensus trends._
+
+### 2.1 Starting point: recent historical performance (approximate)
+
+Apple historical (FY, USD bn unless noted):
+
+- **FY21**: Revenue \$365bn; Op margin ~30%; EPS \$5.61; FCF \$93–95bn
+- **FY22**: Revenue \$394bn; Op margin ~30%; EPS \$6.11; FCF \$110–115bn
+- **FY23**: Revenue \$383bn (modest decline, iPhone/mac softness); Op margin ~29%; EPS \$6.12; FCF ~\$100bn
+- **FY24 (assumed/consensus‑like)**: Revenue ~\$390–395bn; Op margin ~29%; EPS ~\$6.50; FCF ~\$105–110bn
+
+Segment trends:
+- **Products**: Flattish to low‑single‑digit CAGR (iPhone largely mature; Mac/iPad cyclical; Wearables decelerating but still growing).
+- **Services**: High‑teens growth historically, slowing into low‑ to mid‑teens, now >20% of revenue and >35% of gross profit.
+
+These trends underpin a **mid‑single‑digit revenue CAGR and high‑single‑digit EPS CAGR** through FY27 in the base case.
+
+---
+
+### 2.2 Base Case (our central view)
+
+**Key assumptions (FY24–27):**
+- Revenue CAGR: **~5–6%**
+- Op margin: **28–30%** (slight mix‑driven uplift from services)
+- EPS CAGR: **~8–10%**, driven by modest growth plus buybacks.
+- FCF: **\$110–130bn/year**, slightly improving over time.
+
+Illustrative P&L / EPS (base case, approximate):
+
+| Fiscal year | Revenue | YoY | Op margin | Op income | EPS (diluted) | FCF |
+|------------|---------|-----|-----------|-----------|---------------|-----|
+| **FY24E**  | \$392bn | ~+2% | 29%      | \$114bn   | \$6.50        | \$108bn |
+| **FY25E**  | \$410bn | +4–5% | 29–30% | \$119–123bn | \$7.00–7.15 | \$112–116bn |
+| **FY26E**  | \$432bn | +5–6% | 29–30% | \$126–130bn | \$7.55–7.80 | \$118–122bn |
+| **FY27E**  | \$455bn | +5–6% | 29–31% | \$132–141bn | \$8.15–8.50 | \$124–130bn |
+
+Narrative:
+- **Products**: Low‑single‑digit growth driven by:
+  - iPhone replacement cycles (especially 5G/AI‑enhanced models).
+  - Wearables and Mac steady but not hypergrowth.
+- **Services**: Low‑ to mid‑teens growth; mix shifts margin up slightly.
+- **Vision Pro / spatial computing**: Contributes but remains <3–4% of revenue by FY27 in base case (still early S‑curve).
+- **AI monetization**: Primarily defensive/feature‑driven (device stickiness, services ARPU uplift) rather than explicit new revenue streams in this horizon.
+
+Implication: At current valuation (high‑20s forward P/E), the base case supports **mid‑ to high‑single‑digit annualized TSR**, composed of EPS growth plus ~0.5–0.7% dividend yield, with modest multiple compression risk.
+
+---
+
+### 2.3 Bull Case
+
+**Key assumptions (vs base):**
+- Sustained **mid‑ to high‑single‑digit revenue CAGR** (~7–9%).
+- Greater **services acceleration** (mid‑teens+) plus **Vision Pro/spatial computing** begins to scale.
+- AI features materially **increase device ASPs and services ARPU**.
+- Limited margin pressure; op margin **expands to ~31–32%**.
+- FCF grows to **\$140–150bn by FY27**.
+
+Illustrative metrics:
+
+| Fiscal year | Revenue | Op margin | EPS | FCF |
+|------------|---------|-----------|-----|-----|
+| FY26E (bull) | \$445–455bn | 31% | \$8.20–8.40 | \$130–140bn |
+| FY27E (bull) | \$475–490bn | 31–32% | \$9.20–9.60 | \$140–150bn |
+
+Narrative drivers:
+- **Vision Pro / spatial computing** becomes a credible, multi‑billion platform with strong attach to pro/enterprise and high‑end consumers.
+- **AI integration (on‑device models, Siri revamp, generative services)** powers:
+  - Higher device ASPs (premium SKUs).
+  - Incremental services revenue (subscriptions, storage, productivity, media).
+- **China/iPhone headwinds moderate**, and Apple gains share in other regions (India, emerging markets).
+- Street revises long‑term growth upwards; Apple is seen as a **core AI platform play**, supporting a **30–32x P/E** on FY27E EPS.
+
+Implied valuation range in bull:
+- FY27E EPS ~\$9.4 x 30–32x = **\$282–300/share**.
+- Implied 2‑yr TSR (from ~\$190) in the **high‑teens to low‑20s% annualized**.
+
+---
+
+### 2.4 Bear Case
+
+**Key assumptions:**
+- Revenue CAGR slows to **~1–3%**.
+- **China pressure**, macro weakness, and competitive intensity (Android vendors, AI‑centric devices) weigh on iPhone and Wearables.
+- **Services growth decelerates** to high‑single‑digit as App Store and advertising face regulatory and competitive pressure.
+- Op margin **compresses to ~26–27%** due to mix, pricing pressure, and higher R&D/opex for AI & new platforms.
+- FCF falls toward **\$90–100bn** and capital returns grow more slowly.
+
+Illustrative metrics:
+
+| Fiscal year | Revenue | Op margin | EPS | FCF |
+|------------|---------|-----------|-----|-----|
+| FY26E (bear) | \$400–410bn | 27% | \$6.50–6.80 | \$95–100bn |
+| FY27E (bear) | \$405–415bn | 26–27% | \$6.70–7.00 | \$95–105bn |
+
+Narrative risks:
+- Vision Pro underwhelms; spatial computing remains a niche.
+- AI monetization largely accrues to **cloud/infra players**, not to Apple.
+- Regulatory actions force changes in App Store fees or default apps, pressuring services margins.
+- Market re‑rates Apple as a mature, low‑growth consumer hardware + annuity business, valuing it at **~18–20x** EPS.
+
+Implied bear valuation:
+- FY27E EPS ~\$6.8 x 18–20x = **\$122–136/share**, implying notable downside from current levels.
+
+---
+
+## 3. Detailed Forecasts FY25–FY27
+
+These forecasts are directional and anchored to **recent history + consensus patterns** rather than precise Street point estimates.
+
+### 3.1 Revenue by broad segment (approximate)
+
+_Base case, USD bn:_
+
+| Segment       | FY24E | FY25E | FY26E | FY27E | Commentary |
+|--------------|-------|-------|-------|-------|------------|
+| iPhone       |  \$205 | \$210–215 | \$220–225 | \$230–235 | Low‑single‑digit growth; premiumization & AI support ASP. |
+| Mac          |   \$30 | \$31–32 | \$32–33 | \$33–34 | Stable; upgrade cycles tied to Apple Silicon & AI workloads. |
+| iPad         |   \$28 | \$28–29 | \$29–30 | \$30–31 | Modest growth with higher‑end/iPad Pro. |
+| Wearables/Home/Accessories | \$40 | \$42–44 | \$45–47 | \$47–50 | Slower but positive growth; health/fitness key. |
+| **Products subtotal** | **\$303** | **\$311–315** | **\$326–335** | **\$340–350** | ~3–5% CAGR. |
+| Services     |   \$89 | \$99–103 | \$106–112 | \$115–122 | Low‑ to mid‑teens CAGR; payments, cloud, media, ads. |
+| **Total**    | **\$392** | **\$410** | **\$432** | **\$455** | 5–6% CAGR. |
+
+### 3.2 Margins & EPS
+
+- Gross margin: **~44–46%**, supported by services mix; could trend upward modestly.
+- Op margin: **~29–30%**, with R&D and AI investments partly offset by scale and mix.
+- Share count: continuing to shrink **2–3% per year** via buybacks.
+
+Approximate base‑case EPS walk:
+
+- FY24E: **\$6.50**
+- FY25E: ~8–10% EPS growth (op leverage + ~2–3% share count reduction) → **\$7.00–7.15**
+- FY26E: another ~7–9% → **\$7.55–7.80**
+- FY27E: ~7–9% → **\$8.15–8.50**
+
+### 3.3 Free Cash Flow & FCF yield
+
+Assuming:
+- FCF margin **~27–29%** of revenue (historically mid‑ to high‑20s).
+- Capex remains modest (<5% of revenue).
+
+Base case FCF:
+
+- FY25E: \$112–116bn  
+- FY26E: \$118–122bn  
+- FY27E: \$124–130bn  
+
+At a **\$2.9tn** equity value, this implies:
+- FY25E FCF yield: **~3.9–4.1%**
+- FY27E FCF yield: **~4.3–4.5%** (assuming share price unchanged; in practice, valuation will move).
+
+---
+
+## 4. Valuation
+
+### 4.1 Relative valuation vs megacap tech (approximate early‑2026)
+
+| Company | FY25E P/E | FY25E EV/FCF | Comment |
+|--------|-----------|--------------|---------|
+| Apple (AAPL) | ~27–29x | ~24–26x | Premium to hardware, slight discount to fastest‑growing AI leaders. |
+| Microsoft | low‑30s P/E | mid‑20s EV/FCF | AI/cloud leader, faster growth. |
+| Alphabet | low‑ to mid‑20s | low‑20s | Ad/search; AI optionality. |
+| Amazon | high‑20s P/E (adj) | mid‑ to high‑20s EV/FCF | AWS & retail margin expansion. |
+| Meta | high‑teens to low‑20s | teens | Higher cyclicality, ad concentration. |
+| Nvidia | high‑30s+ P/E | 30–40x+ EV/FCF | Hyper‑growth AI infra. |
+
+Conclusion: Apple trades in the **upper mid‑range of megacap peers on P/E**, more expensive than slower or more cyclical names, cheaper than hyper‑growth AI. Its valuation implies **continued resilience and high FCF** but does not fully price in a transformational new S‑curve.
+
+---
+
+### 4.2 P/E‑based valuation
+
+We anchor on FY27E EPS and apply multiple scenarios:
+
+- **Base multiple range**: **24–28x** FY27E EPS (reflecting a premium to the market but slightly below faster‑growth AI names).
+- Using EPS range **\$8.15–8.50**:
+
+| Multiple | Implied Price (FY27E) |
+|----------|-----------------------|
+| 24x      | \$196–204             |
+| 26x      | \$212–221             |
+| 28x      | \$228–238             |
+
+If we target **26x FY27E EPS** and discount back 2 years at ~8% cost of equity:
+- Fair value today ≈  
+  26 × \$8.3 ÷ (1.08²) ≈ \$216 ÷ 1.166 ≈ **\$185–190/share**
+
+This is broadly consistent with a **fairly‑valued to slightly undervalued** stance relative to our base‑case growth.
+
+---
+
+### 4.3 EV/FCF‑based valuation
+
+Assume:
+- FY27E FCF: **\$125bn** (midpoint).
+- Net cash: roughly flat (~\$0 to slightly positive), given ongoing capital returns.
+- Shares outstanding: **~15.0–15.3bn** diluted (continued buybacks).
+
+Equity value from EV/FCF:
+
+- Apply **EV/FCF multiple 22–26x** (consistent with a high‑quality, low‑growth comp set).
+  - At 22x: EV = \$2.75tn → per share ≈ \$180–185.
+  - At 24x: EV = \$3.0tn → per share ≈ \$195–205.
+  - At 26x: EV = \$3.25tn → per share ≈ \$210–220.
+
+Take **24x EV/FCF** as a central anchor; discounting 2 years at 8%:
+- Fair value today ≈ \$200 / 1.166 ≈ **\$170–175/share**.
+
+The FCF framework is slightly more conservative than the P/E view because it penalizes any re‑investment drag and assumes relatively modest long‑term growth.
+
+---
+
+### 4.4 DCF cross‑check (high level)
+
+Assumptions (base case):
+- Top‑line growth: **~5–6% CAGR** FY24–27; tapering to **~3%** by year 10.
+- FCF margin: **~28–29%** near‑term; easing to **~26–27%** long term.
+- WACC: **~7.5–8.0%** (mega‑cap, low leverage, strong cash).
+- Terminal growth (g): **2.0–2.5%**.
+
+Result (illustrative):
+- Midpoint DCF fair equity value **~\$180–200/share**.
+- Sensitivity:
+  - +0.5% to terminal growth or –0.5% to WACC adds **\$15–25/share**.
+  - Conversely, lower growth or higher WACC trims similar magnitude.
+
+Conclusion: DCF **supports current valuation** but does not obviously suggest large mispricing unless you underwrite:
+- stronger long‑term growth (>4% terminal‑like), or
+- materially lower discount rate (e.g., 7%).
+
+---
+
+## 5. Capital Returns & Balance Sheet
+
+### 5.1 Capital allocation
+
+- Apple has returned **>100% of FCF to shareholders** over extended periods by tapping balance sheet flexibility.
+- **Share repurchases:** Historically \$70–100bn+ per year; expect **\$80–90bn/year** in FY25–27 in the base case, declining only modestly as scale rises.
+- **Dividends:** Low but growing; yield around **0.5–0.7%**.
+  - Expect **mid‑single‑digit annual dividend growth**, consistent with EPS growth and conservative payout ratio (~15–20%).
+
+### 5.2 Balance sheet strength
+
+- Cash & marketable securities: well over **\$150bn historically**, though trending down as overseas cash is repatriated and used.
+- Debt: \$100bn+ of term debt; net cash close to **flat to slightly positive**.
+- Ample liquidity to:
+  - fund R&D (including AI and silicon),
+  - pursue opportunistic M&A (though Apple favors smaller, tuck‑in deals),
+  - maintain robust buybacks and dividend growth.
+
+Implication: **Balance sheet is not a constraint**; if valuation compresses, Apple can **accelerate repurchases** and support EPS.
+
+---
+
+## 6. Key Risks
+
+### 6.1 Competitive & technology risk
+
+- **Smartphone & device competition:** Android ecosystem (Samsung, Chinese OEMs) remains aggressive on specs and price; AI‑centric devices may come from competitors first.
+- **AI disruption:** If the center of gravity in AI moves decisively to cloud/LLM‑centric business models (Nvidia, MSFT, GOOG, etc.), Apple risks being seen as a **“dumb terminal” hardware provider**, limiting its share of AI economics.
+- **Platform fatigue & saturation:** Global smartphone penetration is mature; incremental hardware growth is limited without major new categories.
+
+### 6.2 Regulatory & antitrust
+
+- **App Store scrutiny (US, EU, others):** Potential changes to:
+  - 30% commission structure,
+  - side‑loading / alternative app stores,
+  - default app choices and pre‑installs.
+- **Digital Markets Act (EU) and US antitrust actions** may:
+  - reduce app store revenue,
+  - increase compliance cost,
+  - undermine services margins.
+- **Privacy & ad targeting:** Stricter rules may cap monetization of services like advertising.
+
+### 6.3 China & geopolitics
+
+- Significant exposure to:
+  - **Sales**: China is a major revenue contributor.
+  - **Supply chain**: Many critical components and final assembly partners are in or near China.
+- Risks:
+  - Trade tensions, tariffs, or sanctions.
+  - Local competitors gaining share.
+  - Restrictions on foreign devices in government or sensitive sectors.
+
+### 6.4 Supply chain & product cycle risk
+
+- Dependence on a relatively concentrated set of suppliers (e.g., TSMC for advanced nodes).
+- Disruptions (pandemics, natural disasters, geopolitics) can:
+  - delay product launches,
+  - increase costs,
+  - limit supply during key iPhone cycles.
+- **Product cycle timing:** Any mis‑execution in iPhone launches, or lack of compelling innovation, can materially impact annual results.
+
+### 6.5 FX & macro
+
+- Large global revenue footprint → earnings sensitive to USD strength.
+- Consumer spending cycles, especially at the high end, could slow big‑ticket device purchases.
+
+---
+
+## 7. Key Catalysts
+
+### 7.1 Vision Pro & spatial computing
+
+- Early innings; near‑term impact on revenue limited but strategically important.
+- Catalysts:
+  - **Expanded geographic availability**, lower‑priced models, and improved comfort/battery.
+  - Developer traction: compelling third‑party apps, enterprise deployments (design, collaboration, healthcare, field service).
+  - Evidence of strong attach to existing Apple ecosystem, driving **services and content revenue**.
+
+### 7.2 AI integration across devices and services
+
+- On‑device AI for:
+  - enhanced **Siri** and voice interfaces,
+  - personalized content and recommendations,
+  - productivity (summarization, translation, image/video editing).
+- Potential for **AI‑tiered services** (e.g., premium iCloud/AI bundles) to lift ARPU.
+- Street will look for:
+  - clear **roadmap disclosures** at WWDC and product launches,
+  - tangible user metrics (adoption, usage),
+  - early signs of **incremental monetization** (subscriptions, upsell).
+
+### 7.3 iPhone replacement cycle & hardware refreshes
+
+- Major “supercycle” catalysts:
+  - New industrial designs,
+  - Meaningful camera or connectivity upgrades,
+  - AI‑centric features that require newer silicon.
+- Watch and Mac:
+  - Health‑monitoring features, AI productivity use‑cases could trigger upgrade cycles.
+- Any data points suggesting a **stronger‑than‑expected upgrade cycle** would support near‑term upside.
+
+### 7.4 Services growth & monetization
+
+- Drivers:
+  - App Store, subscriptions (Music, TV+, Arcade, Fitness+),
+  - Payments (Apple Pay, Apple Card),
+  - Cloud storage (iCloud+),
+  - Advertising (Search Ads, App Store ads).
+- Catalysts:
+  - Disclosure of **services ARPU** and improved transparency.
+  - Launch of **new subscription bundles** or pricing tiers.
+  - Growth in high‑margin services (fintech, advertising).
+
+### 7.5 New product categories & optionality
+
+- Spatial computing/AR wearables, health/medical devices, in‑car experiences, and potential home devices.
+- Any **new product announcements** with clear monetization models (hardware + services) could lead to:
+  - upward revisions to long‑term growth,
+  - multiple expansion.
+
+### 7.6 Capital return actions
+
+- Authorization of **larger‑than‑expected buyback programs** or acceleration when stock is weak.
+- **Dividend policy changes** (e.g., faster growth, occasional special dividends) could attract income‑oriented investors.
+- Balance sheet moves (e.g., committing to maintain a certain leverage or net‑cash profile) might signal confidence.
+
+---
+
+## 8. Synthesis & Positioning
+
+- **Fundamental quality is very high**: massive installed base, ecosystem lock‑in, sticky services, strong brand, and recurring FCF.
+- **Growth is moderate but dependable**: mid‑single‑digit top‑line and high‑single‑digit EPS growth in the base case, with significant upside if AI/spatial computing become meaningful revenue drivers.
+- **Valuation is full but not extreme**: current multiples embed much of the “quality + defensiveness” premium; outsized upside requires **proof that Apple is a true AI platform winner**, not just a beneficiary at the device layer.
+- **Risk/reward for institutional investors**:
+  - Attractive as a **core, lower‑volatility, high‑quality compounder**.
+  - Less compelling if one seeks maximum upside/leverage to AI vs peers like Nvidia, Microsoft, or select cloud names.
+  - Downside is cushioned by **FCF yield, buybacks, and balance sheet strength**, yet exposed to **structural/regulatory shocks** and product cycle disappointments.
+
+For an institutional portfolio, Apple fits well as:
+- A **large core holding** where the objective is **capital preservation + steady compounding**,  
+- While acknowledging that **alpha vs megacap tech peers** from current levels will likely depend on Apple demonstrating **credible, scaled AI/spatial computing monetization** over the next 2–3 years.

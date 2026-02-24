@@ -1,0 +1,54 @@
+Revenue:10k
+Gross Profit & Margin:10k
+Operating Income & Margin:10k
+Net Income & Margin:10k
+EBIT / EBITDA:10k
+Earnings per Share (EPS):10k
+Return on Assets (ROA):10k
+Return on Equity (ROE):10k
+Return on Invested Capital (ROIC):10k
+Current Ratio:10k
+Quick Ratio:10k
+Cash Ratio:10k
+Working Capital:10k
+Operating Cash Flow (OCF):10k
+Cash Balance:10k
+Total Debt:10k
+Debt-to-Equity Ratio:10k
+Interest Expense:10k
+Interest Coverage Ratio:10k
+Debt-to-Assets Ratio:10k
+Net Debt:10k
+Credit Ratings / Maturities:10k
+Operating Cash Flow (OCF):10k
+Investing Cash Flow (ICF):10k
+Financing Cash Flow (FCF):10k
+Capital Expenditures (CapEx):10k
+Free Cash Flow (FCF):10k
+Free Cash Flow Yield:10k
+Revenue Growth (YoY / QoQ):10k
+EPS Growth:10k
+Cash Flow Growth:10k
+Operating Margin Expansion:10k
+Guidance / Outlook:10k
+Asset Turnover:10k
+Inventory Turnover:10k
+Receivables Turnover:10k
+Days Sales Outstanding:10k
+Days Inventory Outstanding:10k
+Days Payables Outstanding:10k
+Market Capitalization:yf
+P/E Ratio:yf
+Forward P/E:yf
+P/B Ratio:yf
+P/S Ratio:yf
+EV/EBITDA:yf
+Dividend Yield:yf
+Payout Ratio:yf
+Business Model:10k
+Segments & Markets:10k
+Competitive Position / Moat:10k
+Risk Factors:10k
+Management Discussion & Analysis (MD&A):10k
+Corporate Governance & Compensation:10k
+Sustainability / ESG factors:10k
