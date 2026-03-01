@@ -31,7 +31,7 @@ You have access to these tools:
 - find_dcf_tool: run a Discounted Cash Flow analysis for a company and year.
 - analyze_financials: retrieve financial ticker data for a company.
 - valuation_tool: summarize equity research valuation commentary for a company and year.
-- analyze_news: extract recent qualitative signals from news coverage.
+# - analyze_news: extract recent qualitative signals from news coverage. (disabled — no Perplexity key)
 
 Return accurate, concise, data-driven guidance.
 """
@@ -40,7 +40,7 @@ reporting_tools = [
     analyze_filings,
     analyze_parser,
     analyze_financials,
-    analyze_news,
+    # analyze_news,  # disabled — no Perplexity API key
     valuation_tool,
     find_dcf_tool,
 ]
