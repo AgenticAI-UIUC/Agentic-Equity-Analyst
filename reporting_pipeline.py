@@ -7,6 +7,7 @@ from typing import Optional
 from analyst import analyze_filings, analyze_financials, analyze_news, analyze_parser
 from deepagents import create_deep_agent
 from dcf import find_dcf_tool
+from earnings_call_tool import analyze_earnings_calls
 from langchain import agents
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -27,11 +28,11 @@ REPORTING_PROMPT = """
 You are a helpful professional financial analyst tasked with consulting a user.
 
 You have access to these tools:
-- analyze_filings: find specific financial metrics of a company in its 10-Q and 10-K filings.
+- analyze_filings: find specific financial metrics in 10-Q and 10-K filings.
+- analyze_earnings_calls: extract executive commentary, forward guidance, and analyst Q&A from earnings calls. Use for management sentiment and outlook.
 - find_dcf_tool: run a Discounted Cash Flow analysis for a company and year.
 - analyze_financials: retrieve financial ticker data for a company.
-- valuation_tool: summarize equity research valuation commentary for a company and year.
-# - analyze_news: extract recent qualitative signals from news coverage. (disabled — no Perplexity key)
+- valuation_tool: summarize equity research valuation commentary.
 
 Return accurate, concise, data-driven guidance.
 """
@@ -40,6 +41,7 @@ reporting_tools = [
     analyze_filings,
     analyze_parser,
     analyze_financials,
+    analyze_earnings_calls,
     # analyze_news,  # disabled — no Perplexity API key
     valuation_tool,
     find_dcf_tool,
