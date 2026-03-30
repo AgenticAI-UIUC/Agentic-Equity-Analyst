@@ -14,5 +14,4 @@ chromadb
 yfinance
 pandas
 streamlit
-requests
 

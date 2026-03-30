@@ -1,0 +1,1 @@
+../../skills/hydrate-vectors.md
