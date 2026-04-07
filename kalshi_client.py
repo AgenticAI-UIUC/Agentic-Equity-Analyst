@@ -10,6 +10,9 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+# Daily candle interval (minutes).
+_PERIOD_DAILY = 1440
+
 logger = logging.getLogger(__name__)
 
 BASE_URL = "https://api.elections.kalshi.com/trade-api/v2"
@@ -88,6 +91,57 @@ class KalshiClient:
     def get_market(self, ticker: str) -> dict[str, Any]:
         """GET /markets/{ticker} - single market detail."""
         return self._get(f"/markets/{ticker}")
+
+    # ------------------------------------------------------------------
+    # Candlestick / history helpers
+    # ------------------------------------------------------------------
+
+    def get_candlesticks(
+        self,
+        series_ticker: str,
+        market_ticker: str,
+        *,
+        period_interval: int = _PERIOD_DAILY,
+        start_ts: int | None = None,
+        end_ts: int | None = None,
+    ) -> list[dict[str, Any]]:
+        """Fetch daily candlestick data for a market.
+
+        Parameters
+        ----------
+        series_ticker : str
+            Parent series (e.g. ``"KXRECSSNBER"``).
+        market_ticker : str
+            Specific market (e.g. ``"KXRECSSNBER-26"``).
+        period_interval : int
+            Candle width in minutes.  1 = 1 min, 60 = hourly, 1440 = daily.
+        start_ts, end_ts : int, optional
+            Unix epoch bounds.  Defaults to last 90 days → now.
+
+        Returns
+        -------
+        list[dict]
+            Candlestick dicts with ``end_period_ts``, ``price``, ``volume_fp``, etc.
+        """
+        import time as _time
+
+        if end_ts is None:
+            end_ts = int(_time.time())
+        if start_ts is None:
+            start_ts = end_ts - 90 * 86400  # 90 days back
+
+        params: dict[str, Any] = {
+            "period_interval": period_interval,
+            "start_ts": start_ts,
+            "end_ts": end_ts,
+        }
+        path = f"/series/{series_ticker}/markets/{market_ticker}/candlesticks"
+        try:
+            data = self._get(path, params=params)
+            return data.get("candlesticks", [])
+        except (KalshiAPIError, requests.RequestException) as exc:
+            logger.warning("Could not fetch candlesticks for %s: %s", market_ticker, exc)
+            return []
 
     # ------------------------------------------------------------------
     # Batch helper

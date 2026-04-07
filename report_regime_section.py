@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 from datetime import datetime, timezone
 
-from market_regime import Regime, RegimeAssessment
+from market_regime import Regime, RegimeAssessment, TrendInfo
 
 logger = logging.getLogger(__name__)
 
@@ -73,6 +73,23 @@ _SECTOR_NOTES: dict[str, str] = {
 }
 
 
+_TREND_ICON = {
+    "stable": "➡️",
+    "rising": "📈",
+    "falling": "📉",
+    "surging": "🔺",
+    "plunging": "🔻",
+}
+
+
+def _format_trend_cell(trend: TrendInfo) -> str:
+    """Format a compact trend summary for the signals table."""
+    icon = _TREND_ICON.get(trend.trend_label, "")
+    delta_str = f"{trend.delta:+.0%}"
+    label = trend.trend_label.capitalize()
+    return f"{icon} {label} ({delta_str})"
+
+
 def _sector_commentary(sector: str | None, assessment: RegimeAssessment) -> str:
     """Return 1-2 sentences of sector-specific macro commentary."""
     if not sector:
@@ -106,21 +123,62 @@ def _implications_paragraphs(
         lines = []
         if recession_sig:
             pct = f"{recession_sig.implied_probability:.0%}"
+            trend = recession_sig.trend
             if recession_sig.signal_direction == "bullish":
-                lines.append(
+                base = (
                     f"With recession probability sitting at only {pct}, "
                     f"the macro backdrop is supportive for {company_name}'s business."
                 )
+                if trend and trend.trend_label == "falling":
+                    base += (
+                        f" Moreover, this figure has been declining "
+                        f"(from {trend.prob_start:.0%} over the past {trend.sample_days} days), "
+                        f"reinforcing the positive outlook."
+                    )
+                lines.append(base)
             elif recession_sig.signal_direction == "bearish":
-                lines.append(
+                base = (
                     f"Recession probability at {pct} represents a meaningful headwind "
                     f"for {company_name} and warrants caution."
                 )
+                if trend and trend.trend_label in ("surging", "rising"):
+                    base += (
+                        f" Critically, this probability has climbed from "
+                        f"{trend.prob_start:.0%} over the past {trend.sample_days} days "
+                        f"({trend.delta_7d:+.0%} in the last week alone), "
+                        f"signaling a rapidly deteriorating macro outlook."
+                    )
+                elif trend and trend.trend_label == "stable":
+                    base += (
+                        f" That said, this elevated level has persisted for "
+                        f"the past {trend.sample_days} days without significant movement "
+                        f"(started at {trend.prob_start:.0%}), suggesting the market has "
+                        f"already priced in this risk rather than reacting to a new shock."
+                    )
+                lines.append(base)
             else:
-                lines.append(
+                base = (
                     f"Recession probability at {pct} is moderate — not a tailwind but "
                     f"not yet a significant drag on {company_name}."
                 )
+                if trend and trend.trend_label in ("surging", "rising"):
+                    base += (
+                        f" However, the trend is concerning: probability has risen from "
+                        f"{trend.prob_start:.0%} over the past {trend.sample_days} days, "
+                        f"with {trend.delta_7d:+.0%} of that move coming in just the last week."
+                    )
+                elif trend and trend.trend_label == "stable":
+                    base += (
+                        f" This level has been steady for the past {trend.sample_days} days "
+                        f"(started at {trend.prob_start:.0%}), indicating this is the market's "
+                        f"settled expectation rather than a reaction to recent events."
+                    )
+                elif trend and trend.trend_label in ("falling", "plunging"):
+                    base += (
+                        f" Encouragingly, this probability has been declining from "
+                        f"{trend.prob_start:.0%} over the past {trend.sample_days} days."
+                    )
+                lines.append(base)
         if gdp_sig:
             lines.append(gdp_sig.explanation)
         parts.append(" ".join(lines))
@@ -205,12 +263,13 @@ def generate_regime_section(
     if regime_assessment.signals:
         lines.append("### Key Market Signals")
         lines.append("")
-        lines.append("| Signal | Kalshi Market | Implied Prob. | Direction |")
-        lines.append("|--------|--------------|---------------|-----------|")
+        lines.append("| Signal | Kalshi Market | Implied Prob. | Direction | 90-Day Trend |")
+        lines.append("|--------|--------------|---------------|-----------|-------------|")
         for sig in regime_assessment.signals:
             icon = _DIRECTION_ICON.get(sig.signal_direction, sig.signal_direction)
             prob_str = f"{sig.implied_probability:.0%}"
-            lines.append(f"| {sig.name} | {sig.kalshi_ticker} | {prob_str} | {icon} |")
+            trend_str = _format_trend_cell(sig.trend) if sig.trend else "—"
+            lines.append(f"| {sig.name} | {sig.kalshi_ticker} | {prob_str} | {icon} | {trend_str} |")
         lines.append("")
 
     # -- Implications
@@ -227,6 +286,10 @@ def generate_regime_section(
         "This regime assessment is derived from Kalshi prediction market prices, which "
         "reflect the aggregated probabilistic views of market participants. These are "
         "indicators of market sentiment, not forecasts or guarantees. "
+        "Trend analysis uses 90 days of daily closing prices to distinguish between "
+        "stable, long-held market views and sudden shifts in sentiment — a probability "
+        "that has been steady for months carries different implications than one that "
+        "spiked in the last week. "
         f"Data was retrieved on {now_utc}."
     )
     lines.append("")

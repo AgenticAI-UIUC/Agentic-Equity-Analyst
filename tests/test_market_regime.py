@@ -19,8 +19,10 @@ from market_regime import (
     Regime,
     RegimeAssessment,
     RegimeSignal,
+    TrendInfo,
     _price_to_prob,
     _score_to_regime,
+    _compute_trend,
     assess_regime,
 )
 from report_regime_section import generate_regime_section
@@ -139,6 +141,51 @@ class TestKalshiClient:
         results = client.get_markets_batch(["FAKE_TICKER_XYZ"])
         assert results == []
 
+    def test_get_candlesticks_returns_list(self, client: KalshiClient) -> None:
+        """Fetch daily candlesticks for the recession market."""
+        import time
+        end_ts = int(time.time())
+        start_ts = end_ts - 30 * 86400  # 30 days
+        candles = client.get_candlesticks(
+            "KXRECSSNBER", "KXRECSSNBER-26",
+            period_interval=1440,
+            start_ts=start_ts, end_ts=end_ts,
+        )
+        assert isinstance(candles, list)
+        assert len(candles) >= 1
+        # Check candle structure
+        c = candles[0]
+        assert "end_period_ts" in c
+        assert "price" in c
+        assert "close_dollars" in c["price"]
+
+    def test_get_candlesticks_bad_ticker_returns_empty(self, client: KalshiClient) -> None:
+        candles = client.get_candlesticks("FAKE", "FAKE-TICKER", period_interval=1440)
+        assert candles == []
+
+
+# ── _compute_trend (real API calls) ─────────────────────────────────
+
+class TestComputeTrend:
+    """Test trend computation against live Kalshi data."""
+
+    @pytest.fixture(scope="class")
+    def client(self) -> KalshiClient:
+        return KalshiClient()
+
+    def test_trend_for_recession_market(self, client: KalshiClient) -> None:
+        trend = _compute_trend(client, "KXRECSSNBER", "KXRECSSNBER-26")
+        assert trend is not None
+        assert isinstance(trend, TrendInfo)
+        assert 0.0 <= trend.prob_start <= 1.0
+        assert 0.0 <= trend.prob_end <= 1.0
+        assert trend.sample_days >= 3
+        assert trend.trend_label in ("stable", "rising", "falling", "surging", "plunging")
+
+    def test_trend_returns_none_for_bad_market(self, client: KalshiClient) -> None:
+        trend = _compute_trend(client, "FAKE", "FAKE-TICKER")
+        assert trend is None
+
 
 # ── assess_regime (real API calls) ───────────────────────────────────
 
@@ -168,6 +215,15 @@ class TestAssessRegimeLive:
             assert sig.name
             assert sig.explanation
             assert isinstance(sig.kalshi_ticker, str)
+
+    def test_signals_have_trend_data(self, assessment: RegimeAssessment) -> None:
+        """At least some signals should include historical trend info."""
+        trends = [s.trend for s in assessment.signals if s.trend is not None]
+        # We expect at least one signal to have trend data
+        assert len(trends) >= 1
+        for t in trends:
+            assert isinstance(t, TrendInfo)
+            assert t.trend_label in ("stable", "rising", "falling", "surging", "plunging")
 
     def test_summary_is_nonempty(self, assessment: RegimeAssessment) -> None:
         assert isinstance(assessment.summary, str)
@@ -202,6 +258,7 @@ class TestRegimeSectionLive:
     def test_contains_signals_table(self, section_md: str) -> None:
         assert "| Signal |" in section_md
         assert "Implied Prob." in section_md
+        assert "90-Day Trend" in section_md
 
     def test_contains_timestamp(self, section_md: str) -> None:
         assert "UTC" in section_md
