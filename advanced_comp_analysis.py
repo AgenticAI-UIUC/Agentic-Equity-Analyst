@@ -240,7 +240,6 @@ _SWOT_FALLBACK = {
     "weaknesses":    [{"text": "Data unavailable", "source_name": "", "source_url": ""}],
     "opportunities": [{"text": "Data unavailable", "source_name": "", "source_url": ""}],
     "threats":       [{"text": "Data unavailable", "source_name": "", "source_url": ""}],
-    "hiring_insight": "Data unavailable",
 }
 
 
@@ -254,7 +253,7 @@ HIRING & TALENT SIGNALS (SEC filings + FMP):
 {hiring_text}
 
 Rules:
-- 2 bullets per quadrant (8 total).
+- 1 bullet per quadrant (4 total).
 - Every bullet must be grounded in a specific event or data point from the feeds above.
 - No generic filler (e.g. "strong brand"). Be precise.
 - Use employee headcount direction (growing = strength, shrinking = weakness).
@@ -265,8 +264,7 @@ Return ONLY a JSON object matching this exact schema:
   "strengths":     [{{"text": "...", "source_name": "...", "source_url": "..."}}],
   "weaknesses":    [{{"text": "...", "source_name": "...", "source_url": "..."}}],
   "opportunities": [{{"text": "...", "source_name": "...", "source_url": "..."}}],
-  "threats":       [{{"text": "...", "source_name": "...", "source_url": "..."}}],
-  "hiring_insight": "One sentence: what do headcount trends + executive profile reveal about {ticker}'s next strategic move?"
+  "threats":       [{{"text": "...", "source_name": "...", "source_url": "..."}}]
 }}
 """
     return _safe_json_call(prompt, model="gpt-4o", max_tokens=900, fallback=_SWOT_FALLBACK)
@@ -287,6 +285,8 @@ def _generate_white_space(target: str, swot_blocks: dict[str, dict]) -> dict:
         if ticker != target
     )
 
+    target_swot_json = json.dumps(swot_blocks.get(target, {}), indent=2)
+
     prompt = f"""You are a strategy consultant advising {target}'s C-suite.
 
 Below are SWOT analyses (in JSON) for {target}'s top competitors, grounded in
@@ -297,10 +297,10 @@ COMPETITOR SWOTS:
 {competitor_swots}
 
 {target} SWOT (for reference):
-{json.dumps(swot_blocks.get(target, {{}}), indent=2)}
+{target_swot_json}
 
 Rules:
-- Exactly 3 opportunities and 1 watch_out.
+- Exactly 2 opportunities and 1 watch_out.
 - Every field grounded in specific evidence from the SWOTs above.
 - No platitudes.
 
