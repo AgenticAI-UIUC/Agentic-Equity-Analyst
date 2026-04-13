@@ -14,4 +14,9 @@ chromadb
 yfinance
 pandas
 streamlit
+transformers
+torch
+httpx
+parsel
+nest_asyncio
 
