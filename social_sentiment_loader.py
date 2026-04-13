@@ -18,6 +18,8 @@ from dotenv import load_dotenv
 from transformers import pipeline, AutoTokenizer
 import re
 from collections import Counter
+import math
+import numpy as np
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -220,10 +222,15 @@ class SocialSentimentLoader:
             
         common_words = [word for word, count in Counter(words).most_common(10)]
 
+        # Calculate variance/std_dev of sentiment scores
+        composite_scores = [r['sentiment']['composite_score'] for r in results]
+        std_dev = float(np.std(composite_scores)) if len(composite_scores) > 1 else 0.0
+
         return {
             "ticker": ticker.upper(),
             "volume_tracked": len(results),
             "average_composite_score": round(avg_score, 3),
+            "sentiment_std_dev": round(std_dev, 3),
             "sentiment_label": sentiment_label,
             "trending_topics": common_words,
             "recent_titles": [r['title'] for r in results[:3]],
@@ -285,6 +292,36 @@ def get_on_demand_sentiment(ticker: str) -> Dict[str, Any]:
     except Exception as e:
         logging.error(f"On-demand scrape failed: {e}")
         return {"ticker": ticker, "error": str(e)}
+
+def get_normalized_sentiment_score(ticker: str) -> Dict[str, Any]:
+    """
+    Returns a normalized sentiment score (0.0-1.0) derived from Reddit data.
+    0.0 = Strong Negative, 0.5 = Neutral, 1.0 = Strong Positive.
+    """
+    metrics = get_on_demand_sentiment(ticker)
+    if "error" in metrics or "average_composite_score" not in metrics:
+        return {"score": 0.5, "confidence": 0.0, "details": metrics}
+    
+    raw_score = metrics["average_composite_score"]
+    # Map [-1, 1] to [0, 1] using Sigmoid-like transition or simple linear for sentiment
+    # For sentiment, keeping it (raw+1)/2 is often fine, but let's use a soft sigmoid as requested
+    normalized = 1 / (1 + math.exp(-raw_score * 5)) # Scale by 5 to make it sensitive
+    
+    # NEW: Agreement metric based on std_dev
+    std_dev = metrics.get("sentiment_std_dev", 0.5)
+    agreement = 1 - min(std_dev, 1.0)
+    
+    # NEW: Non-linear confidence curve
+    volume = metrics.get("volume_tracked", 0)
+    confidence = (1 - math.exp(-volume / 5)) * agreement
+    
+    return {
+        "score": round(normalized, 3),
+        "confidence": round(confidence, 3),
+        "raw_value": raw_score,
+        "std_dev": std_dev,
+        "label": metrics.get("sentiment_label", "Neutral")
+    }
 
 
 if __name__ == "__main__":

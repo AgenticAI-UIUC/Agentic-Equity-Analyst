@@ -15,6 +15,7 @@ from langchain.tools import tool
 from market_data_loader import calculate_moving_average_tool
 from pdf_builder import report
 from valuation_agent import valuation_tool
+from synthesis_node import SynthesisNode
 
 LLM_MANAGER = init_chat_model("gpt-5.1", model_provider="openai")
 LLM_REPORTER = ChatOpenAI(model="gpt-4o", temperature=0.2, timeout=30)
@@ -35,7 +36,9 @@ You have access to these tools:
 - analyze_news: extract recent qualitative signals from news coverage.
 - calculate_moving_average_tool: calculate the 365-day moving average for a stock ticker.
 
-Return accurate, concise, data-driven guidance.
+Return accurate, concise, data-driven guidance. 
+
+When analyzing a company, always perform a Weighted Signal Synthesis to resolve conflicting signals and provide a final high-conviction conviction score.
 """
 
 reporting_tools = [
@@ -46,6 +49,7 @@ reporting_tools = [
     valuation_tool,
     find_dcf_tool,
     calculate_moving_average_tool,
+    analyze_weighted_synthesis,
 ]
 
 reporting_agent = agents.create_agent(
@@ -68,6 +72,19 @@ def _normalize_message_payload(message) -> str:
                 parts.append(str(item))
         content = "\n".join(parts)
     return str(content)
+
+
+@tool
+def analyze_weighted_synthesis(ticker: str) -> str:
+    """
+    Performs a high-conviction synthesis of multiple signals (Fundamentals, Valuation, Technicals, Sentiment).
+    Returns a structured JSON with a final score, rating, confidence, and disagreement map.
+    Use this to resolve conflicts between different data sources.
+    """
+    node = SynthesisNode()
+    result = node.calculate_synthesis(ticker)
+    import json
+    return json.dumps(result, indent=2)
 
 
 @tool
