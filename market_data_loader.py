@@ -154,7 +154,7 @@ def calculate_moving_average_tool(ticker: str, days: int = 365) -> str:
     except Exception as e:
         return f"Error calculating moving average for {ticker}: {str(e)}"
 
-<<<<<<< HEAD
+
 def get_normalized_technical_score(ticker: str) -> Dict[str, Any]:
     """
     Returns a normalized technical score (0.0-1.0) based on multi-horizon Z-scores.
@@ -163,6 +163,7 @@ def get_normalized_technical_score(ticker: str) -> Dict[str, Any]:
     try:
         import yfinance as yf
         from datetime import date, timedelta
+        import math
         stock = yf.Ticker(ticker)
         
         info = stock.info
@@ -176,7 +177,7 @@ def get_normalized_technical_score(ticker: str) -> Dict[str, Any]:
         
         # Get history for MA and StdDev calculations
         end_date = date.today()
-        start_date = end_date - timedelta(days=500)
+        start_date = end_date - timedelta(days=650)
         full_hist = stock.history(start=start_date, end=end_date)
         
         if full_hist.empty or len(full_hist) < 365:
@@ -229,7 +230,7 @@ def get_normalized_technical_score(ticker: str) -> Dict[str, Any]:
         }
     except Exception as e:
         return {"score": 0.5, "confidence": 0.0, "error": str(e)}
-=======
+
 @tool
 def calculate_trend_regime_tool(ticker: str) -> str:
     """
@@ -437,4 +438,4 @@ def calculate_atr_tool(ticker: str, period: int = 14) -> str:
 
     except Exception as e:
         return f"Error calculating ATR for {ticker}: {str(e)}"
->>>>>>> main
+

@@ -42,16 +42,12 @@ You have access to these tools:
 - calculate_atr_tool: calculate the Average True Range (ATR) to measure market volatility and identify quiet or volatile market conditions.
 - analyze_divergence_tool: detect divergence between technical indicators (RSI + Moving Averages) and fundamental signals (Analyst Ratings) across 1-week, 1-month, and 3-month periods to identify potential trading opportunities or risks.
 
-<<<<<<< HEAD
-Return accurate, concise, data-driven guidance. 
-
-When analyzing a company, always perform a Weighted Signal Synthesis to resolve conflicting signals and provide a final high-conviction conviction score.
-=======
 CRITICAL - TECHNICAL ANALYSIS INTEGRATION:
 When performing technical analysis, you MUST use multiple indicators together and synthesize them into unified insights:
 
 1. ALWAYS run multiple technical indicators (RSI, ATR, Moving Averages, Trend Regime) when analyzing a stock's technical position.
-   ALSO run the analyze_divergence_tool to identify divergence between technical and fundamental signals.
+   ALSO run the analyze_divergence_tool to identify divergence between technical and fundamental signals. 
+   When analyzing a company, ALWAYS perform a Weighted Signal Synthesis using `analyze_weighted_synthesis` to resolve conflicting signals and provide a final high-conviction multi-horizon score relative to peers.
 
 2. INTEGRATE the indicators to assess:
    - TREND DIRECTION (Bullish vs Bearish):
@@ -92,7 +88,6 @@ When performing technical analysis, you MUST use multiple indicators together an
    - Technical analysis should be a core component of every equity research report you generate
 
 Return accurate, concise, data-driven guidance that integrates all technical indicators into cohesive insights.
->>>>>>> main
 """
 
 reporting_tools = [
@@ -104,14 +99,11 @@ reporting_tools = [
     find_dcf_tool,
     get_daily_yf_tool,
     calculate_moving_average_tool,
-<<<<<<< HEAD
     analyze_weighted_synthesis,
-=======
     calculate_trend_regime_tool,
     calculate_rsi_tool,
     calculate_atr_tool,
     analyze_divergence_tool,
->>>>>>> main
 ]
 
 reporting_agent = agents.create_agent(
