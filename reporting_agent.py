@@ -29,7 +29,7 @@ You have access to the full suite of equity reporting tools, including:
 - calculate_atr_tool
 - analyze_divergence_tool
 
-Provide accurate, concise, data-driven reasoning. Always use analyze_weighted_synthesis when performing multi-signal evaluations.
+Provide accurate, concise, data-driven reasoning.
 """
 
 
