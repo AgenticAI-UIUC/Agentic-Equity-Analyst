@@ -1,1 +1,0 @@
-../../skills/add-equity-tool.md

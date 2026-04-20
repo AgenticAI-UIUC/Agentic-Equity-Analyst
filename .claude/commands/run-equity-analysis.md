@@ -1,1 +1,0 @@
-../../skills/run-equity-analysis.md
