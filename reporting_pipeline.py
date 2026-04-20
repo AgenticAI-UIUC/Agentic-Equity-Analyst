@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import Optional
 
+from lead_analyst import run_lead_analyst
 from analyst import analyze_filings, analyze_financials, analyze_news, analyze_parser
 from deepagents import create_deep_agent
 from dcf import find_dcf_tool
@@ -211,9 +212,8 @@ def generate_financial_report(
 ) -> str:
     """Run the end-to-end reporting pipeline and persist results to disk."""
 
-    user_prompt = build_prompt(company, year, ticker, custom_prompt)
-    condensed_prompt = _summarize_prompt(user_prompt)
-    report_text = _invoke_manager(condensed_prompt)
+    resolved_ticker = ticker or company
+    report_text = run_lead_analyst(company=company, ticker=resolved_ticker, year=year)
     report(report_text, launch_ui=launch_ui, file_path=file_path)
     return report_text
 
