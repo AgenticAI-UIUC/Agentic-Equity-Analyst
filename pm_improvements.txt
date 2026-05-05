@@ -1,0 +1,36 @@
+PM CHALLENGE LOOP - IMPROVEMENTS LOG
+================================================================================
+
+This file tracks all improvements and issues identified by the PM agent over time.
+Use this to identify common failure patterns and improve prompts/schemas.
+
+Phase 4 will add automatic analysis of this log to improve the system.
+
+================================================================================
+Format:
+[YYYY-MM-DD HH:MM:SS] Company (Ticker) - Issue Type - Severity
+Description: ...
+Action Taken: ...
+Outcome: ...
+================================================================================
+
+# Instructions for Phase 4:
+# - Parse this file to find common patterns
+# - Identify frequent blind spot types
+# - Track which agents produce the most issues
+# - Use patterns to improve specialist prompts
+# - Adjust PM strictness based on historical accuracy
+
+================================================================================
+LOG ENTRIES
+================================================================================
+
+[Placeholder - PM improvements will be logged here automatically]
+
+# Example entry format:
+# [2024-11-18 14:30:00] NVDA - assumption_risk - CRITICAL
+# Description: DCF assumed 18% revenue CAGR but management guided to 10-12%
+# Action Taken: Re-queried analyze_filings and find_dcf_tool, revised CAGR to 12%
+# Outcome: PM approved after revision, PT adjusted from $220 to $185
+# ───────────────────────────────────────────────────────────────────────────
+

@@ -31,10 +31,28 @@ model = init_chat_model("gpt-4o", model_provider="openai")
 
 def valuation(company, year):
     query = f"Detailed valuation of {company} in recent times"
-    res = parser_data.similarity_search(query=query, k=10)
-    res.extend(news_data.similarity_search(query=query, k=10))
-    dcf_calculation = dcf.find_dcf(company, year)
-    analyst_data = load_analyst_ratings(company)
+
+    # Try to get data with error handling
+    try:
+        res = parser_data.similarity_search(query=query, k=10)
+    except Exception as e:
+        res = [f"[Error accessing parser_data: {str(e)}]"]
+
+    try:
+        news_results = news_data.similarity_search(query=query, k=10)
+        res.extend(news_results)
+    except Exception as e:
+        res.append(f"[Error accessing news_data: {str(e)}]")
+
+    try:
+        dcf_calculation = dcf.find_dcf(company, year)
+    except Exception as e:
+        dcf_calculation = f"[Error calculating DCF: {str(e)}]"
+
+    try:
+        analyst_data = load_analyst_ratings(company)
+    except Exception as e:
+        analyst_data = f"[Error loading analyst ratings: {str(e)}]"
 
     messages = [
                 SystemMessage(content=f"""

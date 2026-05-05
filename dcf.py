@@ -126,8 +126,13 @@ def extract_number_with_unit(text: str, context: str = "") -> List[float]:
 
 def query_chunks(company: str, year: str, query: str, k: int = 5) -> str:
     """Query relevant text from parser_data."""
-    results = collection.similarity_search(f"{company} {year} {query}", k=k)
-    return " ".join([r.page_content for r in results])
+    try:
+        results = collection.similarity_search(f"{company} {year} {query}", k=k)
+        if not results:
+            return f"[No data found for {company} {year} {query}]"
+        return " ".join([r.page_content for r in results])
+    except Exception as e:
+        return f"[Error querying ChromaDB: {str(e)}]"
 
 # ---------------------- NEW: YAHOO-BASED DCF HELPER ---------------------- #
 def get_dcf_inputs_from_yahoo(ticker: str, years: int = 5) -> Dict:

@@ -52,13 +52,23 @@ def analyze(query, collection):
     try:
         res = collection.similarity_search(query=query, k=10)
 
+        if not res:
+            return f"No data found in collection for query: {query}"
+
         messages = [SystemMessage(content="You are a professional technical financial analyst."),
                     HumanMessage(content=f"Summarize the following data: {res[:]} . Do not repeat yourself"),
                     ]
-        
+
         return model.invoke(messages).content
     except Exception as e:
-        return f"Error while running tool: {e}"
+        # Return a more detailed error message
+        error_msg = str(e)
+        if "404" in error_msg or "Not Found" in error_msg:
+            return f"ChromaDB connection error (404): Collection may not exist or credentials may be invalid. Please run the data loading scripts first (filing_embedder.py, news_loader.py, etc.). Query was: {query}"
+        elif "401" in error_msg or "Unauthorized" in error_msg:
+            return f"ChromaDB authentication error: Check CHROMADB_API_KEY, CHROMADB_TENANT, and CHROMADB in .env file. Query was: {query}"
+        else:
+            return f"Error accessing ChromaDB for query '{query}': {error_msg}"
 
 @tool
 def analyze_filings(query):
